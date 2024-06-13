@@ -1,0 +1,6 @@
+To find the flag out of all of these random words, there are two things you need to know:
+
+- This word is the only REAL word out of all the words
+- This word is the only word that starts with a capital letter
+
+Good luck, it shouldn't be too hard for you! :)
