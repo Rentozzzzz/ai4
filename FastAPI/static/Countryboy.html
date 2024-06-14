@@ -15,24 +15,26 @@
 
             <div id="errorMessage" style="color: red;"></div>
 
+            <!-- JavaScript to handle form submission -->
             <script>
                 document.getElementById('passwordForm').addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    let password = document.getElementById('password').value;
-        
+                    event.preventDefault();  //Prevent default form submission
+                    let password = document.getElementById('password').value;  //Get password input value
+
+                    // Send password to server for validation
                     fetch('/validate_password', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ password: password })
+                        body: JSON.stringify({ password: password })  //Convert password to JSON format
                     })
-                    .then(response => response.json())
+                    .then(response => response.json())  //Parse server response as JSON
                     .then(data => {
                         if (data.valid) {
-                            window.location.href = '/download_pdf';
+                            window.location.href = '/download_pdf';  //Redirect to download PDF if password is valid
                         } else {
-                            document.getElementById('errorMessage').innerText = 'Invalid password. Please try again.';
+                            document.getElementById('errorMessage').innerText = 'Invalid password. Please try again.';  //Display error message if password is invalid
                         }
                     });
                 });
