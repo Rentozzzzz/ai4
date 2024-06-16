@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 print(FastAPI)
-# Pre-defined correct password
+
 CORRECT_PASSWORD = 'SyrupIsTheBest'
 
 class PasswordRequest(BaseModel):

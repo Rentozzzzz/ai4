@@ -3,10 +3,13 @@
         <title> countryboy</title>
         <p>
             <h1>Welcome to my website</h1>
-            <h1>nothing really to see here</h1>
+            <h1>nothing much to really see here</h1>
             <h2>I would like it if you can check out my SSH server </h2>
-            <h2>It's really cool, and the ip is 192.168.162.43</h2>
-            <h2>Just simply put the flag here and you're done</h2>
+            <h2>It's really cool, and the ip is 192.168.162.43
+                You will have to find the password & username yourself, but i can give you a hint
+                It's somewhere in the website
+            </h2>
+            <h2>Just simply put the flag here and you're (maybe) done</h2>
             <form id="passwordForm">
               <label for="password">Submit Flag:</label>
               <input type="password" id="password" name="password" required>
@@ -18,28 +21,26 @@
             <!-- JavaScript to handle form submission -->
             <script>
                 document.getElementById('passwordForm').addEventListener('submit', function(event) {
-                    event.preventDefault();  //Prevent default form submission
-                    let password = document.getElementById('password').value;  //Get password input value
-
-                    // Send password to server for validation
+                    event.preventDefault();
+                    let password = document.getElementById('password').value;
+        
                     fetch('/validate_password', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
-                        body: JSON.stringify({ password: password })  //Convert password to JSON format
+                        body: JSON.stringify({ password: password })
                     })
-                    .then(response => response.json())  //Parse server response as JSON
+                    .then(response => response.json())
                     .then(data => {
                         if (data.valid) {
-                            window.location.href = '/download_pdf';  //Redirect to download PDF if password is valid
+                            window.location.href = '/download_pdf';
                         } else {
-                            document.getElementById('errorMessage').innerText = 'Invalid password. Please try again.';  //Display error message if password is invalid
+                            document.getElementById('errorMessage').innerText = 'Invalid password. Please try again.';
                         }
                     });
                 });
             </script>
-      
             <pre> 
                     
 
