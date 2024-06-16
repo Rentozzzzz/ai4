@@ -1,15 +1,83 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title>My Final Website</title>
-    <p>
-        <h1>Welcome to this Website</h1>
-        <h1>This is where you put in the final flag that you found in the ssh</h1>
-        <h2>Just simply put the flag here and you're done</h2>
-        <input>
-        <button>Enter</button>
-    </p>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Final Part</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
+    <h2>The Final Part</h2>
+    <div id="inputContainer">
+        <form id="inputForm">
+            <label for="inputField">How many "Hamlet"s were there in the same line as the 2nd Flag:</label>
+            <input type="text" id="inputField" required>
+            <button type="submit">Check</button>
+        </form>
+    </div>
+
+    <div id="secondInput" style="display: none; margin-top: 20px;">
+        <form id="secondInputForm">
+            <label for="secondInputField">What is the key:</label>
+            <input type="text" id="secondInputField" required>
+            <button type="submit">Check</button>
+        </form>
+    </div>  
+
+    <div id="result" style="display: none; margin-top: 20px;">
+        <h3>Congratulations!</h3>
+        <p>This marks the end of this CTF!</p>
+    </div>
+
+    <script>
+        // Initial setup
+        let firstInputCorrect = false;
+        let secondInputCorrect = false;
+
+        document.getElementById("inputForm").addEventListener("submit", function(event) {
+            event.preventDefault(); //prevent the form from submitting
+
+            let userInput = document.getElementById("inputField").value.trim();
+
+            //Replace with your first correct input condition
+            if (userInput === "7" || userInput === "seven" || userInput === "SEVEN" || userInput === "Seven" || userInput === "SEvEN" || userInput === "SEvEn" || userInput === "SEVeN" || userInput === "SEvEn"){
+                firstInputCorrect = true;
+                document.getElementById("inputContainer").style.display = "none";
+                document.getElementById("secondInput").style.display = "block";
+            } else {
+                alert("Incorrect input. Please try again.");
+            }
+        });
+
+        document.getElementById("secondInputForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // prevent the form from submitting
+
+            let secondUserInput = document.getElementById("secondInputField").value.trim();
+
+            // Replace with your second correct input condition
+            if (secondUserInput === "art" && firstInputCorrect) {
+                secondInputCorrect = true;
+                document.getElementById("secondInput").style.display = "none";
+                document.getElementById("result").style.display = "block";
+            } else {
+                alert("Incorrect input. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
+
