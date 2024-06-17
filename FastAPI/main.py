@@ -1,10 +1,9 @@
-
+# This one failed to work unfortunately, I tried to make it work but it was not working as expected. I will try to fix it next time.
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse, FileResponse 
 from pydantic import BaseModel
 
 app = FastAPI()
-print(FastAPI)
 
 CORRECT_PASSWORD = 'SyrupIsTheBest'
 
@@ -20,8 +19,8 @@ async def validate_password(request: PasswordRequest):
 
 @app.get("/download_pdf")
 async def download_pdf():
-    pdf_file_path = 'static/DummyTest.pdf'  #Update depending on what PDF file
-    return FileResponse(pdf_file_path, media_type='application/pdf', filename='DummyTest.pdf')
+    pdf_file_path = 'DocPDF/TheWayOfHAMLET'  #Update depending on what PDF file
+    return FileResponse(pdf_file_path, media_type='application/pdf', filename='TheWayOfHAMLET.pdf')
 # print(FileResponse)
 if __name__ == '__main__':
     import uvicorn
