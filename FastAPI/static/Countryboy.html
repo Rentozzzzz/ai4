@@ -10,18 +10,40 @@
                 It's somewhere in the website
             </h2>
             <h2>Actually, i might as well give you this PDF since you wont be able to translate it anyways</h2>
-            <a href="TheWayOfHAMLET.pdf" download>Download PDF</a>
+            <a href="TryToSolveTheFirstChallenge.pdf" download>Download PDF</a>
             <h2>Just simply put the flag here and you're (maybe) done</h2>
-            <form id="passwordForm">
-              <label for="password">Submit Flag:</label>
-              <input type="password" id="password" name="password" required>
-              <button type="submit">Enter</button>
+
+            <form id="inputForm">
+                <label for="inputField">Submit Flag:</label>
+                <input type="text" id="inputField" required>
+                <button type="submit">Enter</button>
             </form>
-
-            <div id="errorMessage" style="color: red;"></div>
-
-            <!-- JavaScript to handle form submission -->
+        
+            <div id="result" style="display: none; margin-top: 20px;">
+                <h3>Congratulations!</h3>
+                <p>Nice work! But it's not over yet..</p>
+                <p>The cipher you need to use for that encrypted document that was provided to you</p>
+                <p>is your Standard Vigenère cipher. As for the key, it is my favourite book</p>
+            </div>
+        
             <script>
+                document.getElementById("inputForm").addEventListener("submit", function(event) {
+                    event.preventDefault(); // prevent the form from submitting
+        
+                    // Get the value from the input field
+                    let userInput = document.getElementById("inputField").value.trim();
+        
+                    // Replace the condition with your correct input validation
+                    if (userInput === "yourcorrectinput") {
+                        document.getElementById("result").style.display = "block";
+                        document.getElementById("inputForm").style.display = "none"; // hide the form
+                    } else {
+                        alert("Incorrect input. Please try again.");
+                    }
+                });
+            </script>
+
+            <!-- <script>
                 document.getElementById('passwordForm').addEventListener('submit', function(event) {
                     event.preventDefault();  // Prevent default form submission
                     let password = document.getElementById('password').value;  // Get password input value
@@ -43,7 +65,7 @@
                         }
                     });
                 });
-            </script>
+            </script> -->
             <pre> 
                     
 
